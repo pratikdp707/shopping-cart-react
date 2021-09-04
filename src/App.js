@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Component/Header";
+import NavBar from "./Component/NavBar";
+import ProductPage from "./Component/ProductPage";
+import React, { useState } from 'react'
+
 
 function App() {
+  const [cartItem, setCartItem] = useState(0);
+
+    const addToCart = () => {
+        console.log(cartItem)
+        let count = cartItem;
+        setCartItem(count+1);
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar cartItem ={cartItem}/>
+      <Header/>
+     <ProductPage addToCart ={addToCart}/>
+    </>
   );
 }
 
